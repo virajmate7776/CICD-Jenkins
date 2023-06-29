@@ -35,11 +35,12 @@
     </style>
   </head>
   <body>
-    <h1> This is a CICD Pipeline Project!!! </h1>
+    <h1> This is a CICD Pipeline Project !!! </h1>
   
     <br>
     <br>
-    <h2> App Status  : Up & Running !!! </h2>
+    <h2> App Status  : Up & Running And Everything Looks Good !!! </h2>
+    <br>
     <h2> Image       : virajmate7776/IMAGE_NAME </h2>
     <br>
     <div class="color-box blue"></div>
