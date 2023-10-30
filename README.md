@@ -35,6 +35,7 @@
 
 
 ### Create 3 EC2 instances 
+
 <br>
 
 •	Jenkins 
@@ -126,7 +127,9 @@ Copy and paste the password in the Jenkins page and click on continue.
  <br>
 
 ### Now install Ansible on same server.
+
 <br>
+
 Add Ansible repository
     <br> 
        
@@ -215,6 +218,7 @@ Now connect to Sonarqube server via ssh using putty.
 <br>
 
 ### Install Sonarqube
+ 
   <br>
   
     cd /opt/
@@ -234,7 +238,9 @@ Now connect to Sonarqube server via ssh using putty.
     mv sonarqube-10.0.0.68432 sonarqube
     ls
 
+
 Create sonar user
+
 <br>
 
     useradd -d /opt/sonarqube sonar
@@ -245,6 +251,7 @@ Create sonar user
 
 
 Create custom service for sonar
+  
    <br>
    
     cat >> /etc/systemd/system/sonarqube.service <<EOL
@@ -287,6 +294,7 @@ Service start
     systemctl status sonarqube.service
 
 Check 9000 port is used or not
+
 <br>
    
     apt install net-tools
@@ -294,6 +302,7 @@ Check 9000 port is used or not
 <br>
 
 Open sonarqube on browser
+ 
   <br>
     
     URL:   http://<sonarqube_ip>:9000
@@ -330,6 +339,7 @@ Open sonarqube on browser
 <br>
 
 ### Install Docker with the command 
+
 <br>
 
     sudo apt-get install -y \
@@ -339,7 +349,9 @@ Open sonarqube on browser
     gnupg-agent \
     software-properties-common
 <br>
+
 Add Dockers official GPG key
+  
   <br>
     
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
@@ -385,7 +397,9 @@ Add Kubernetes Repo
      echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" >                 /etc/apt/sources.list.d/kubernetes.list
     }
 <br>
+
 ### Install kubeadm kubelet kubectl 
+
 <br>
     
     apt update && apt-get install -y kubelet=1.21* kubeadm=1.21* kubectl=1.21*  
@@ -460,6 +474,7 @@ OR
 
 
 ### Configure Jenkins Pipeline job.
+  
    <br>
     
     Login Jenkins > New Item > project-1 > Pipeline > OK
@@ -496,7 +511,9 @@ OR
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/803dd350-181a-4fc8-87b6-cdd15453be3d)
 
 <br>
+
 ### Jenkinsfile stage for creating workspace in Jenkins.
+
 <br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/fb9e3462-da19-47c1-a477-c1dd994f2315)
@@ -867,4 +884,5 @@ The changes has been made in the code repository and we can see the result.
 <br>
 
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/7cf3436d-7f83-497b-a3cc-64b69d396a55)
+
 <br>
