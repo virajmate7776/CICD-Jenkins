@@ -1,6 +1,9 @@
 
 # End to End CICD Pipeline for Java Application on Kubernetes Cluster
 
+
+
+
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/32a17fff-6111-4aa1-a760-e3ef53f5cca9)
 
  
@@ -120,6 +123,7 @@ Now fetch latest update & install Ansible
 Now check Ansible version
    
     ansible --version
+    
 
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/ea41c678-f01a-4aec-9f6a-df92f7caab44)
 
@@ -232,6 +236,7 @@ Create custom service for sonar
      Restart=always
 
 [Install]
+
 WantedBy=multi-user.target
 EOL
 
