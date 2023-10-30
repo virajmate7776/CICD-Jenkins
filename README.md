@@ -5,7 +5,7 @@
 
  
 
-Pre-requisites :
+### Pre-requisites :
 
 •	Git
 
@@ -28,7 +28,7 @@ Pre-requisites :
 
 
 
-Step 1: Create 3 EC2 instances 
+### Create 3 EC2 instances 
 
 •	Jenkins 
 
@@ -53,11 +53,12 @@ Now Connect to Jenkins server via ssh using putty.
 
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/0dab92ff-f52e-4242-95d7-fc0e91e128a2)
 
  
 
 
- Install Jenkins using following commands.
+### Install Jenkins using following commands.
  
   	wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add –
 
@@ -65,18 +66,17 @@ Now Connect to Jenkins server via ssh using putty.
 
   	sudo apt update
 
-    sudo apt install Jenkins
+        sudo apt install Jenkins
+ Start the Jenkins and check the status 
 
-Start the Jenkins and check the status 
-
-	  sudo systemctl start Jenkins
-
-	  sudo systemctl status Jenkins
+        sudo systemctl start Jenkins
+        sudo systemctl status Jenkins
 
 
 
  
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/7a923f18-2cb2-4988-9f20-f99c460005c5)
 
  
 
@@ -87,25 +87,29 @@ Start the Jenkins and check the status
 
 Run cat command with the file location to see the password in the file 
 
- 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/6201511b-637e-4520-908d-b7b017fc0629)
+
 
 Copy and paste the password in the Jenkins page and click on continue.
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/605e9498-0914-48d1-b5c3-11b109b19ce1)
 
  
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/e41783c9-0bbe-4430-8b72-88652aa639ed)
+
+
+ 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/a49cff1c-64a5-4006-b939-d436295a000c)
 
 
  
 
-
- 
-
-Now install Ansible on same server.
+### Now install Ansible on same server.
 
 Add Ansible repository
      
-     sudo apt-add-repository ppa:ansible/ansible
+    sudo apt-add-repository ppa:ansible/ansible
 
 Now fetch latest update & install Ansible
 
@@ -117,10 +121,11 @@ Now check Ansible version
    
     ansible --version
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/ea41c678-f01a-4aec-9f6a-df92f7caab44)
 
  
 
-Now install maven on same server.
+### Now install maven on same server.
 
 Check version before install
    
@@ -157,7 +162,8 @@ Check version again now
     mvn --help
 
 
- 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/d404cad0-0df6-4f26-93c8-f0dfc2621b17)
+
 
 
 Now connect to Sonarqube server via ssh using putty.
@@ -177,7 +183,7 @@ Now connect to Sonarqube server via ssh using putty.
 
 
 
-Install Sonarqube
+### Install Sonarqube
   
     cd /opt/
     wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-   10.0.0.68432.zip
@@ -258,12 +264,18 @@ New Pass: admin@123
  
 
   
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/94ed8954-c3de-4140-bf7c-b28863c7cb80)
 
 
  
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/e879661f-f412-470c-8ca6-6c23a00d4401)
 
+
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/ea85609b-21a1-4ae2-97df-d41068678ccb)
 
  
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/bfdb81e3-8e62-474f-b187-fa1f236c9e21)
 
 
  Now connect the Kubernetes server via ssh using putty.
@@ -271,7 +283,7 @@ New Pass: admin@123
 
 
 
-Install Docker with the command 
+### Install Docker with the command 
 
     sudo apt-get install -y \
     apt-transport-https \
@@ -318,7 +330,7 @@ Add Kubernetes Repo
      echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" >                 /etc/apt/sources.list.d/kubernetes.list
     }
 
-Install kubeadm kubelet kubectl 
+### Install kubeadm kubelet kubectl 
 
     apt update && apt-get install -y kubelet=1.21* kubeadm=1.21* kubectl=1.21*  
                
@@ -368,19 +380,21 @@ OR
     kubectl taint nodes k8-master node-role.kubernetes.io/master:NoSchedule-                   
 
 
-KUBERNETES CLUSTER TESTING
+### KUBERNETES CLUSTER TESTING
 
  Check pod status
     
     kubectl get pod
 
 
- 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/aa912475-f60b-44a9-8c4a-dc39cb2afc51)
 
 
- 
 
-Configure Jenkins Pipeline job.
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/f5464d23-437f-494b-bf6a-9001e7d235bf)
+
+
+### Configure Jenkins Pipeline job.
    
     Login Jenkins > New Item > project-1 > Pipeline > OK
           Pipeline:
@@ -397,39 +411,52 @@ Configure Jenkins Pipeline job.
 
 
  
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/aec0cc10-8807-4292-b4bb-f7d80d38bb3f)
 
 
  
 
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/e87012ae-982f-4cd8-8d71-4d5a5dfc4893)
 
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/f9fe4815-c48d-46fc-95d7-13689841be37)
 
 
-Jenkinsfile stage for creating workspace in Jenkins.
 
- 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/803dd350-181a-4fc8-87b6-cdd15453be3d)
+
+
+### Jenkinsfile stage for creating workspace in Jenkins.
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/fb9e3462-da19-47c1-a477-c1dd994f2315)
+
 
  Click on Build Now to create a job.
 
  
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/3c2794b3-68c4-4970-89d5-c241158d2e7d)
 
 
 
 
 Now it will create a folder called project-1 in the Jenkins workspace
 
- 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/66f8c822-181c-4e61-a535-b16b9ca2f97a)
+
 
 Add stage ‘Modified Image Tag’ in jenkinsfile and commit the changes. 
 
- 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/06cfb1cf-80e7-4f41-b28a-1a2c79a29a5b)
+
 
 Click on Build Now it will run the build and it will show the build on stage view.
 
  
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/cb98abdc-67cd-4df9-88c9-5fe1b43849fd)
 
 
 Add another stage to the Jenkinsfile it will create build and add .war file
@@ -437,10 +464,12 @@ Add another stage to the Jenkinsfile it will create build and add .war file
  
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/f53a3d2a-24c4-4786-a5fb-ba0771205c0f)
 
 
 
-Jenkins integration with Sonarqube server.
+
+### Jenkins integration with Sonarqube server.
     
     Login to Sonarqube server
         Sonarqube > My Account > Security > Generate Tokens
@@ -453,12 +482,16 @@ Jenkins integration with Sonarqube server.
 
  
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/4f909980-e066-4d05-816b-6aad4d5591ff)
 
 
+
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/43b8a881-589a-4bdc-a991-a26d9897ef9c)
 
  
 
-Go to Jenkins and create credential for sonar token.
+### Go to Jenkins and create credential for sonar token.
         
          Dashboard > Manage Jenkins > Credentials > System Global credentials (unrestricted) > Add credentials > 
                  kind: Secret text
@@ -469,7 +502,9 @@ Go to Jenkins and create credential for sonar token.
          Create
 
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/5267589f-ccdf-42a7-94c1-f7d1e2a387c1)
+
 
 Add a Stage Sonarqube for security check in the Jenkinsfile.
 
@@ -477,21 +512,27 @@ Add a Stage Sonarqube for security check in the Jenkinsfile.
 
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/17b3b5f4-2970-416e-b0de-9a1fdec0b90e)
+
 
 
 
 
 The sonar stage is built successfully.
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/77a721a5-0a9a-431e-857c-95b5a84bd95f)
+
 
 Now it will show passed status in front of project-1. It means there is no duplications, vulnerabilities in the code. 
 
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/ec8e2122-d9c5-483f-8d92-f0a7ada9347c)
 
 
-Configure inventory file & Password less authentication with Kubernetes server.
+
+### Configure inventory file & Password less authentication with Kubernetes server.
    
    On Kubernetes server execute following commands.
       
@@ -502,7 +543,9 @@ Configure inventory file & Password less authentication with Kubernetes server.
        systemctl restart sshd.service
 
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/38e0f1e6-63e2-4704-bf59-e22923b8080b)
+
 
 
 On Ansible server execute this commands.
@@ -530,17 +573,31 @@ On Ansible server execute this commands.
 
  
 
- 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/560cfd30-cc03-406f-86b5-a0a5b5f39185)
 
  
 
- 
 
-Now create ssh connection with Kubernetes server without password using command 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/11be3f12-82ec-4b40-9398-fa5218f95621)
+
+
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/7cf717f3-a684-43ad-b455-567fddd700b4)
+
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/29b338ab-3014-4686-aa30-ec7fe517e407)
+
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/c454eb77-bbff-4e50-b03d-9c49cf88fcfe)
+
+
+ Now create ssh connection with Kubernetes server without password using command 
     
       ssh root@<kubernetes_ip>
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/94c2c146-031a-4357-88ed-f02d6aa456ee)
+
 
 Now check whether the servers are responding or not on ansible server using command 
      
@@ -549,10 +606,12 @@ Now check whether the servers are responding or not on ansible server using comm
  
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/1ff3eb34-a239-4d8f-b5cf-c5ed6e734aec)
 
 
 
-Create credential for Dockerhub server login.
+
+### Create credential for Dockerhub server login.
 
          Dashboard > Manage Jenkins > Credentials > System Global credentials (unrestricted) > Add credentials > 
            kind: Secret text
@@ -565,24 +624,34 @@ Create credential for Dockerhub server login.
 
  
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/f733d5e7-4a66-4083-aff5-ae4cf6827972)
 
+
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/f99d6a27-3921-45a3-a9ed-f1479caf7faa)
 
  
 
 Now add new stage for coping Jar & Dockerfile in the Jenkinsfile.
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/57b5b96b-9323-438a-8755-f62ece52f6e9)
+
 
 Click on Build Now
      It will create build and we can see the stage view.
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/abe3f205-2197-4007-9e96-a6e4ff934289)
+
 
 After successfully completing build it will copy a webapp.war and Dockerfile on kubernetes server
 In the directory  /opt/docker
 
  
 
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/d512466c-a06d-4fe8-a6ef-9373c1b38e25)
 
 
 
@@ -592,7 +661,11 @@ Now add new stage to push image on Dockerhub
  
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/4aac9a2c-5586-4a5c-91a6-6128ddaca876)
 
+
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/ca6bd7fd-ac07-455f-85a1-4b137f763e1f)
 
  
 
@@ -608,6 +681,8 @@ We can see the image is pushed on Dockerhub
 
  
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/63b8f805-701e-4333-a952-b3a21edb339a)
+
 
 
 
@@ -619,14 +694,20 @@ Now add new stage to deploy on Kubernetes cluster
 
 
 
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/0dd04e3a-350a-4b3b-a34e-bacbd9ef252e)
+
  
 
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/3643ab0a-33f9-4f99-957e-df268d165ce3)
 
 
 Now the latest version of image is pushed on Dockerhub with version no
 
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/04547b27-3352-4164-8730-fe6f2a91dcc3)
+
 
 
 We can see our deployment is successful and pods are running on Kubernetes server
@@ -634,30 +715,42 @@ We can see our deployment is successful and pods are running on Kubernetes serve
 
  
 
- 
 
- 
-
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/7eddc4ae-2d8d-4738-9fa0-dabeb83c5d0a)
 
 
 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/aec15b3e-173a-449b-b572-cc866b061ee2)
 
 
 
 
-Now copy and paste the public ip address of the Kubernetes cluster on browser and append the port no 30000/webapp/ 
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/aa9afde3-0ee2-4497-b727-88014864727f)
+
+
+
+
+
+Now copy and paste the public ip address of the Kubernetes cluster on browser and append the port no 30000/webapp/
+
+
   We can see the webapp is running. 
 
- 
 
-Github integration with Jenkins.
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/91c537ce-f063-4daa-ba41-5963412b4881)
+
+
+### Github integration with Jenkins.
 
 
     Github > Repository > Settings > Webhooks > Add Webhooks > 
     Payload UR   : http://<jenkins_ip>:8080/github-webhook/
     Content type : application/json
 
- 
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/ff8744f0-3857-44d1-83c5-33421753935d)
+
 
 On Jenkins server					
 
@@ -666,13 +759,19 @@ On Jenkins server
           GitHub hook trigger for GITScm polling
 
 
- 
 
- 
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/1aab9d0d-bf89-42fa-bb79-f5f896cbeb8a)
+
+
+
+ ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/b6fcaec4-32ac-42ab-ac55-b513e190077c)
+
 
 
 When developer make the changes in the code repository, the changes will get reflected immediately.
 The changes has been made in the code repository and we can see the result.
 
 
+
+![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/7cf3436d-7f83-497b-a3cc-64b69d396a55)
 
