@@ -76,12 +76,15 @@ Now Connect to Jenkins server via ssh using putty.
   	sudo apt update
 
     sudo apt install Jenkins
- <br>     
+
+ 
+ <br>   
+ 
  Start the Jenkins and check the status 
 <br>
 
-        sudo systemctl start Jenkins
-        sudo systemctl status Jenkins
+    sudo systemctl start Jenkins
+    sudo systemctl status Jenkins
 
 
 <br>
@@ -238,10 +241,12 @@ Create custom service for sonar
    <br>
    
     cat >> /etc/systemd/system/sonarqube.service <<EOL
+    <br>
+    
    [Unit]
    Description=SonarQube service
    After=syslog.target network.target
-
+<br>
    [Service]
    Type=forking
    User=sonar
@@ -254,6 +259,7 @@ Create custom service for sonar
      LimitNPROC=4096
      TimeoutStartSec=5
      Restart=always
+<br>
 
 [Install]
 
@@ -275,16 +281,18 @@ Service start
 
 Check 9000 port is used or not
 <br>
+   
     apt install net-tools
     netstat -plant | grep 9000
 
 Open sonarqube on browser
   <br>
+    
     URL:   http://<sonarqube_ip>:9000
 
-U: admin
-P: admin
-New Pass: admin@123
+    U: admin
+    P: admin
+    New Pass: admin@123
 
 
 <br>
@@ -484,6 +492,7 @@ OR
  Click on Build Now to create a job.
 
  <br>
+ 
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/3c2794b3-68c4-4970-89d5-c241158d2e7d)
 
 <br>
@@ -492,11 +501,13 @@ OR
 Now it will create a folder called project-1 in the Jenkins workspace
 
 <br>
+
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/66f8c822-181c-4e61-a535-b16b9ca2f97a)
 
 <br>
 Add stage ‘Modified Image Tag’ in jenkinsfile and commit the changes. 
 <br>
+
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/06cfb1cf-80e7-4f41-b28a-1a2c79a29a5b)
 
 <br>
