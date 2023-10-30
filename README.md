@@ -36,15 +36,17 @@
 
 ### Create 3 EC2 instances 
 <br>
+
 •	Jenkins 
 
 •	Ansible 
 
 •	Kubernetes 
-<br>
-We need to create 2 instances with instance type t2.micro and 1 with t2.medium for Kubernetes cluster.
 
 <br>
+
+We need to create 2 instances with instance type t2.micro and 1 with t2.medium for Kubernetes cluster.
+
 <br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/7a42f156-a647-4d0e-bda5-b3efb13d9d2b)
@@ -73,15 +75,16 @@ Now Connect to Jenkins server via ssh using putty.
 
   	sudo apt update
 
-        sudo apt install Jenkins
+    sudo apt install Jenkins
  <br>     
  Start the Jenkins and check the status 
+<br>
 
         sudo systemctl start Jenkins
         sudo systemctl status Jenkins
 
 
-
+<br>
  
 
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/7a923f18-2cb2-4988-9f20-f99c460005c5)
@@ -99,6 +102,7 @@ Run cat command with the file location to see the password in the file
 
 <br>
 Copy and paste the password in the Jenkins page and click on continue.
+<br>
 
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/605e9498-0914-48d1-b5c3-11b109b19ce1)
 
@@ -116,37 +120,43 @@ Copy and paste the password in the Jenkins page and click on continue.
 ### Now install Ansible on same server.
 <br>
 Add Ansible repository
-     
+    <br> 
+       
     sudo apt-add-repository ppa:ansible/ansible
-
+<br>
 Now fetch latest update & install Ansible
-
+<br>
+    
     sudo apt update
    
     sudo apt-get install ansible -y
+<br>
 
 Now check Ansible version
-   
+  <br> 
+    
     ansible --version
     
+<br>
 
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/ea41c678-f01a-4aec-9f6a-df92f7caab44)
 
- 
+ <br>
 
 ### Now install maven on same server.
 <br>
 Check version before install
    
     mvn --version
-
+<br>
 Change dir to /opt and download maven
     
     cd /opt/
     ls
 
-wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
-  
+    wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
+  <br>
+     
     apt-get install unzip -y
    
     unzip apache-maven-3.9.1-bin.zip
@@ -159,6 +169,7 @@ Configure maven home path
     vim ~/.bashrc
 
 Add end of the file & save it.
+    
     export M2_HOME=/opt/apache-maven-3.9.1
     export PATH=$PATH:$M2_HOME/bin
 
@@ -189,12 +200,13 @@ Now connect to Sonarqube server via ssh using putty.
      
      apt-get install openjdk-11-jdk -y       
 
-      java -version         
+     java -version         
 
 <br>
 
 ### Install Sonarqube
   <br>
+  
     cd /opt/
     wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-   10.0.0.68432.zip
    
@@ -214,6 +226,7 @@ Now connect to Sonarqube server via ssh using putty.
 
 Create sonar user
 <br>
+
     useradd -d /opt/sonarqube sonar
     cat /etc/passwd | grep sonar
     ls -ld /opt/sonarqube
@@ -223,6 +236,7 @@ Create sonar user
 
 Create custom service for sonar
    <br>
+   
     cat >> /etc/systemd/system/sonarqube.service <<EOL
    [Unit]
    Description=SonarQube service
@@ -251,7 +265,9 @@ EOL
 Open port 9000 from firewalld OR security group
 9000
 Service start
-    <br> 
+    
+   <br>
+   
     systemctl start sonarqube.service
     Service enable & check status
     systemctl enable sonarqube.service
@@ -271,7 +287,7 @@ P: admin
 New Pass: admin@123
 
 
-
+<br>
  
 
   
@@ -298,6 +314,7 @@ New Pass: admin@123
 
 ### Install Docker with the command 
 <br>
+
     sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
@@ -307,10 +324,12 @@ New Pass: admin@123
 
 Add Dockers official GPG key
   <br>
+    
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
 
 Add Docker Repo	
   <br>
+   
     sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
@@ -318,10 +337,12 @@ Add Docker Repo
 <br>
 Install the latest version of Docker Engine and containerd
    <br>
+   
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 <br>
 Check the installation (and version) by entering following command
    <br>
+    
     docker --version
 <br>
 The product_uuid can be checked using following command
@@ -331,14 +352,17 @@ The product_uuid can be checked using following command
 
 Set Docker to launch at boot by entering the command 
     <br>
+    
     sudo systemctl enable docker
 
 Verify Docker is running
   <br>
+    
     sudo systemctl status docker
 
 Add Kubernetes Repo
 <br>
+    
     {
      curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
      echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" >                 /etc/apt/sources.list.d/kubernetes.list
@@ -346,18 +370,21 @@ Add Kubernetes Repo
 <br>
 ### Install kubeadm kubelet kubectl 
 <br>
+    
     apt update && apt-get install -y kubelet=1.21* kubeadm=1.21* kubectl=1.21*  
                
     sudo apt-mark hold kubelet kubeadm kubectl
 
 Verify the installation with kubeadm
 <br>
+    
     kubeadm version
 
     kubectl version --short
 <br>
 Initialize the Kubernetes on Master Node
   <br>
+   
     sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 Enter the following to create a directory for the cluster: To start using your cluster, you need to run the following as a regular user
@@ -368,17 +395,20 @@ Enter the following to create a directory for the cluster: To start using your c
 <br>
 Now check to see if the kubectl command is activated
 <br>
+    
     kubectl get nodes
 
 <br>
 Deploy Pod Network to cluster
   <br>
+    
     sudo kubectl apply -f 
     
     https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 Verify that everything is running and communicating
    <br>
+    
     kubectl get pod --all-namespaces
 <br>
 Cross check your cluster is running or not 
@@ -387,6 +417,7 @@ Cross check your cluster is running or not
 
 Remove taints from K8-master node
 <br>
+   
     kubectl taint nodes k8-master node-role.kubernetes.io/control-plane:NoSchedule-            
 
 OR
@@ -410,6 +441,7 @@ OR
 
 ### Configure Jenkins Pipeline job.
    <br>
+    
     Login Jenkins > New Item > project-1 > Pipeline > OK
           Pipeline:
               Definition: Pipeline script from SCM
@@ -634,6 +666,7 @@ Now check whether the servers are responding or not on ansible server using comm
 ### Create credential for Dockerhub server login.
 
 <br>
+         
          Dashboard > Manage Jenkins > Credentials > System Global credentials (unrestricted) > Add credentials > 
            kind: Secret text
            Scope: Global
