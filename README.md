@@ -134,9 +134,13 @@ Add Ansible repository
     <br> 
        
     sudo apt-add-repository ppa:ansible/ansible
+
 <br>
+
 Now fetch latest update & install Ansible
+
 <br>
+
     
     sudo apt update
     sudo apt-get install ansible -y
@@ -154,6 +158,7 @@ Now check Ansible version
  <br>
 
 ### Now install maven on same server.
+
 <br>
 
 Check version before install
@@ -260,7 +265,9 @@ Create custom service for sonar
    [Unit]
    Description=SonarQube service
    After=syslog.target network.target
+   
 <br>
+  
    [Service]
    Type=forking
    User=sonar
@@ -273,6 +280,7 @@ Create custom service for sonar
      LimitNPROC=4096
      TimeoutStartSec=5
      Restart=always
+
 <br>
 
 [Install]
@@ -363,13 +371,16 @@ Add Docker Repo
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
     stable"
+
 <br>
 Install the latest version of Docker Engine and containerd
    <br>
    
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
 <br>
 Check the installation (and version) by entering following command
+   
    <br>
     
     docker --version
@@ -385,11 +396,13 @@ Set Docker to launch at boot by entering the command
     sudo systemctl enable docker
 
 Verify Docker is running
+ 
   <br>
     
     sudo systemctl status docker
 
 Add Kubernetes Repo
+
 <br>
     
     {
@@ -413,7 +426,9 @@ Verify the installation with kubeadm
 
     kubectl version --short
 <br>
+
 Initialize the Kubernetes on Master Node
+
   <br>
    
     sudo kubeadm init --pod-network-cidr=10.244.0.0/16
@@ -423,14 +438,19 @@ Enter the following to create a directory for the cluster: To start using your c
     sudo mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
 <br>
+
 Now check to see if the kubectl command is activated
+
 <br>
     
     kubectl get nodes
 
 <br>
+
 Deploy Pod Network to cluster
+ 
   <br>
     
     sudo kubectl apply -f 
@@ -438,6 +458,7 @@ Deploy Pod Network to cluster
     https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 Verify that everything is running and communicating
+  
    <br>
     
     kubectl get pod --all-namespaces
@@ -456,11 +477,13 @@ Remove taints from K8-master node
 OR
 
     kubectl taint nodes k8-master node-role.kubernetes.io/master:NoSchedule-                   
+
 <br>
 
 ### KUBERNETES CLUSTER TESTING
 
 <br>
+ 
  Check pod status
     
     kubectl get pod
@@ -519,6 +542,7 @@ OR
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/fb9e3462-da19-47c1-a477-c1dd994f2315)
 
 <br>
+
  Click on Build Now to create a job.
 
  <br>
@@ -535,12 +559,15 @@ Now it will create a folder called project-1 in the Jenkins workspace
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/66f8c822-181c-4e61-a535-b16b9ca2f97a)
 
 <br>
+
 Add stage ‘Modified Image Tag’ in jenkinsfile and commit the changes. 
+
 <br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/06cfb1cf-80e7-4f41-b28a-1a2c79a29a5b)
 
 <br>
+
 Click on Build Now it will run the build and it will show the build on stage view.
 
  <br>
@@ -548,6 +575,7 @@ Click on Build Now it will run the build and it will show the build on stage vie
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/cb98abdc-67cd-4df9-88c9-5fe1b43849fd)
 
 <br>
+
 Add another stage to the Jenkinsfile it will create build and add .war file
 
  
@@ -689,6 +717,7 @@ On Ansible server execute this commands.
  Now create ssh connection with Kubernetes server without password using command 
     
       ssh root@<kubernetes_ip>
+
 <br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/94c2c146-031a-4357-88ed-f02d6aa456ee)
