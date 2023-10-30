@@ -101,16 +101,21 @@ Now Connect to Jenkins server via ssh using putty.
 
 Run cat command with the file location to see the password in the file 
 <br>
+
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/6201511b-637e-4520-908d-b7b017fc0629)
 
 <br>
+
 Copy and paste the password in the Jenkins page and click on continue.
+
 <br>
 
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/605e9498-0914-48d1-b5c3-11b109b19ce1)
 
  
 <br>
+
+
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/e41783c9-0bbe-4430-8b72-88652aa639ed)
 
 <br>
@@ -131,7 +136,6 @@ Now fetch latest update & install Ansible
 <br>
     
     sudo apt update
-   
     sudo apt-get install ansible -y
 <br>
 
@@ -148,16 +152,19 @@ Now check Ansible version
 
 ### Now install maven on same server.
 <br>
+
 Check version before install
    
     mvn --version
 <br>
+
 Change dir to /opt and download maven
     
     cd /opt/
     ls
 
     wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
+
   <br>
      
     apt-get install unzip -y
@@ -284,6 +291,7 @@ Check 9000 port is used or not
    
     apt install net-tools
     netstat -plant | grep 9000
+<br>
 
 Open sonarqube on browser
   <br>
@@ -315,6 +323,7 @@ Open sonarqube on browser
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/bfdb81e3-8e62-474f-b187-fa1f236c9e21)
 
 <br>
+
  Now connect the Kubernetes server via ssh using putty.
 
 
@@ -329,7 +338,7 @@ Open sonarqube on browser
     curl \
     gnupg-agent \
     software-properties-common
-
+<br>
 Add Dockers official GPG key
   <br>
     
@@ -419,11 +428,13 @@ Verify that everything is running and communicating
     
     kubectl get pod --all-namespaces
 <br>
+
 Cross check your cluster is running or not 
      
      kubectl get nodes
 
 Remove taints from K8-master node
+
 <br>
    
     kubectl taint nodes k8-master node-role.kubernetes.io/control-plane:NoSchedule-            
@@ -434,6 +445,7 @@ OR
 <br>
 
 ### KUBERNETES CLUSTER TESTING
+
 <br>
  Check pod status
     
@@ -485,6 +497,7 @@ OR
 
 <br>
 ### Jenkinsfile stage for creating workspace in Jenkins.
+<br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/fb9e3462-da19-47c1-a477-c1dd994f2315)
 
@@ -593,6 +606,8 @@ Now it will show passed status in front of project-1. It means there is no dupli
 <br>
 
 ### Configure inventory file & Password less authentication with Kubernetes server.
+  
+   <br>
    
    On Kubernetes server execute following commands.
       
@@ -660,6 +675,7 @@ On Ansible server execute this commands.
 <br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/94c2c146-031a-4357-88ed-f02d6aa456ee)
+ 
 <br>
 
 Now check whether the servers are responding or not on ansible server using command 
@@ -698,13 +714,18 @@ Now check whether the servers are responding or not on ansible server using comm
  <br>
 
 Now add new stage for coping Jar & Dockerfile in the Jenkinsfile.
+
 <br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/57b5b96b-9323-438a-8755-f62ece52f6e9)
 
 <br>
+
 Click on Build Now
-     It will create build and we can see the stage view.
+
+<br>
+     
+   It will create build and we can see the stage view.
 
 <br>
 
@@ -768,6 +789,7 @@ Now add new stage to deploy on Kubernetes cluster
 ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/3643ab0a-33f9-4f99-957e-df268d165ce3)
 
 <br>
+
 Now the latest version of image is pushed on Dockerhub with version no
 
 <br>
@@ -811,6 +833,7 @@ Now copy and paste the public ip address of the Kubernetes cluster on browser an
 <br>
 
 ### Github integration with Jenkins.
+
 <br>
 
     Github > Repository > Settings > Webhooks > Add Webhooks > 
