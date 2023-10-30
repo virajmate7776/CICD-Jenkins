@@ -147,6 +147,7 @@ Now fetch latest update & install Ansible
 <br>
 
 Now check Ansible version
+  
   <br> 
     
     ansible --version
@@ -182,6 +183,8 @@ Change dir to /opt and download maven
     rm -rf apache-maven-3.9.1-bin.zip
     ls
 
+<br>
+
 Configure maven home path
     
     vim ~/.bashrc
@@ -192,6 +195,8 @@ Add end of the file & save it.
     export PATH=$PATH:$M2_HOME/bin
 
     source ~/.bashrc
+
+<br>
 
 Check version again now
    
@@ -206,11 +211,14 @@ Check version again now
 <br>
 
 Now connect to Sonarqube server via ssh using putty.
+  
    Pre-requisites for sonarqube
 
 •	Jenkins 
 
 •	Java
+
+<br>
 
   Install Java
      
@@ -243,6 +251,7 @@ Now connect to Sonarqube server via ssh using putty.
     mv sonarqube-10.0.0.68432 sonarqube
     ls
 
+<br>
 
 Create sonar user
 
@@ -292,6 +301,9 @@ EOL
 
 Open port 9000 from firewalld OR security group
 9000
+
+<br>
+
 Service start
     
    <br>
@@ -356,6 +368,7 @@ Open sonarqube on browser
     curl \
     gnupg-agent \
     software-properties-common
+    
 <br>
 
 Add Dockers official GPG key
@@ -363,6 +376,8 @@ Add Dockers official GPG key
   <br>
     
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+
+<br>
 
 Add Docker Repo	
   <br>
@@ -373,24 +388,31 @@ Add Docker Repo
     stable"
 
 <br>
+
 Install the latest version of Docker Engine and containerd
+  
    <br>
    
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 <br>
+
 Check the installation (and version) by entering following command
    
    <br>
     
     docker --version
+
 <br>
+
 The product_uuid can be checked using following command
+
 <br>
     
     sudo cat /sys/class/dmi/id/product_uuid
 
 Set Docker to launch at boot by entering the command 
+   
     <br>
     
     sudo systemctl enable docker
@@ -419,7 +441,10 @@ Add Kubernetes Repo
                
     sudo apt-mark hold kubelet kubeadm kubectl
 
+<br>
+
 Verify the installation with kubeadm
+
 <br>
     
     kubeadm version
@@ -457,6 +482,8 @@ Deploy Pod Network to cluster
     
     https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
+<br>
+
 Verify that everything is running and communicating
   
    <br>
@@ -465,8 +492,13 @@ Verify that everything is running and communicating
 <br>
 
 Cross check your cluster is running or not 
+
+<br>
      
      kubectl get nodes
+
+<br>
+
 
 Remove taints from K8-master node
 
@@ -488,6 +520,7 @@ OR
     
     kubectl get pod
 
+<br>
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/aa912475-f60b-44a9-8c4a-dc39cb2afc51)
 
@@ -905,7 +938,7 @@ On Jenkins server
 
  ![image](https://github.com/virajmate7776/CICD-Jenkins/assets/117629972/b6fcaec4-32ac-42ab-ac55-b513e190077c)
 
-
+<br>
 
 When developer make the changes in the code repository, the changes will get reflected immediately.
 The changes has been made in the code repository and we can see the result.
